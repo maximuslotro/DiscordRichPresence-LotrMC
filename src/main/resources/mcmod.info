@@ -5,7 +5,7 @@
   "description": "This mod provides purely cosmetic benefits by showing a Rich Presence in discord that shows up when others in your discord server click on your name.",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "authorList": [""Otis_Goodman","maximuslotro""],
+  "authorList": ["Otis_Goodman","maximuslotro"],
   "credits": "2023 maximuslotro",
   "logoFile": "assets/logo.png",
   "screenshots": [],
