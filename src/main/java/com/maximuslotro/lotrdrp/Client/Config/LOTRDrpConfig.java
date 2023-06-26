@@ -44,7 +44,7 @@ public class LOTRDrpConfig {
 			File path = new File(cfgDir + "/LOTRDrp/" + "lotrdrp" + ".cfg");
 			config = new Configuration(path);
 			loadConfig();
-			LOTRDrpMain.LOG.info("Config Inited");
+			LOTRDrpMain.LOG.info("DRP Config Inited");
 		}
 	}
 
@@ -63,68 +63,68 @@ public class LOTRDrpConfig {
 				|| theme != allThemes[8] || theme != allThemes[9] || theme != allThemes[10] || theme != allThemes[11]
 				|| theme != allThemes[13] || theme != allThemes[14] || theme != allThemes[15] || theme != allThemes[16]
 				|| theme != allThemes[17]) {
+			LOTRDrpMain.LOG.error("DRP Invalid Theme " + theme);
 			Random rand = new Random();
 			themeNo = Integer.valueOf(rand.nextInt(allThemesId.length));
 			theme= "random";
 		}
 		LOTRDrpMain.theme = "minecraft-lord-of-the-rings-mod";
-		LOTRDrpMain.LOG.error("Invalid Theme " + theme);
 		if (theme.equalsIgnoreCase("default")) {
 			LOTRDrpMain.theme = "minecraft-lord-of-the-rings-mod";
-			LOTRDrpMain.LOG.info("theme set to default");
+			LOTRDrpMain.LOG.info("DRP theme set to default");
 		} else if (theme.equalsIgnoreCase("mithril")) {
 			LOTRDrpMain.theme = "mithril";
-			LOTRDrpMain.LOG.info("theme set to mithril");
+			LOTRDrpMain.LOG.info("DRP theme set to mithril");
 		} else if (theme.equalsIgnoreCase("pvp")) {
 			LOTRDrpMain.theme = "pvp";
-			LOTRDrpMain.LOG.info("theme set to pvp");
+			LOTRDrpMain.LOG.info("DRP theme set to pvp");
 		} else if (theme.equalsIgnoreCase("quest")) {
 			LOTRDrpMain.theme = "quest";
-			LOTRDrpMain.LOG.info("theme set to quest");
+			LOTRDrpMain.LOG.info("DRP theme set to quest");
 		} else if (theme.equalsIgnoreCase("kings-foil")) {
 			LOTRDrpMain.theme = "kingsfoil";
-			LOTRDrpMain.LOG.info("theme set to kings-foil");
+			LOTRDrpMain.LOG.info("DRP theme set to kings-foil");
 		} else if (theme.equalsIgnoreCase("book")) {
 			LOTRDrpMain.theme = "book";
-			LOTRDrpMain.LOG.info("theme set to book");
+			LOTRDrpMain.LOG.info("DRP theme set to book");
 		} else if (theme.equalsIgnoreCase("smoke-ship")) {
 			LOTRDrpMain.theme = "smokeship";
-			LOTRDrpMain.LOG.info("theme set to smoke-ship");
+			LOTRDrpMain.LOG.info("DRP theme set to smoke-ship");
 		}
 		if (theme.equalsIgnoreCase("coin")) {
 			LOTRDrpMain.theme = "coin";
-			LOTRDrpMain.LOG.info("theme set to coin");
+			LOTRDrpMain.LOG.info("DRP theme set to coin");
 		} else if (theme.equalsIgnoreCase("pipe")) {
 			LOTRDrpMain.theme = "siege";
-			LOTRDrpMain.LOG.info("theme set to pipe");
+			LOTRDrpMain.LOG.info("DRP theme set to pipe");
 		} else if (theme.equalsIgnoreCase("horn")) {
 			LOTRDrpMain.theme = "horn";
-			LOTRDrpMain.LOG.info("theme set to horn");
+			LOTRDrpMain.LOG.info("DRP theme set to horn");
 		} else if (theme.equalsIgnoreCase("compass")) {
 			LOTRDrpMain.theme = "compass";
-			LOTRDrpMain.LOG.info("theme set to compass");
+			LOTRDrpMain.LOG.info("DRP theme set to compass");
 		} else if (theme.equalsIgnoreCase("true-silver")) {
 			LOTRDrpMain.theme = "truesilver";
-			LOTRDrpMain.LOG.info("theme set to true-silver");
+			LOTRDrpMain.LOG.info("DRP theme set to true-silver");
 		} else if (theme.equalsIgnoreCase("random")) {
 			LOTRDrpMain.theme = allThemesId[themeNo.intValue()];
-			LOTRDrpMain.LOG.info("theme set to random");
+			LOTRDrpMain.LOG.info("DRP theme set to random");
 		} else if (theme.equalsIgnoreCase("bounty")) {
 			LOTRDrpMain.theme = "bounty";
-			LOTRDrpMain.LOG.info("theme set to bounty");
+			LOTRDrpMain.LOG.info("DRP theme set to bounty");
 		} else if (theme.equalsIgnoreCase("flesh")) {
 			LOTRDrpMain.theme = "flesh";
-			LOTRDrpMain.LOG.info("theme set to flesh");
+			LOTRDrpMain.LOG.info("DRP theme set to flesh");
 		} else if (theme.equalsIgnoreCase("gondolin")) {
 			LOTRDrpMain.theme = "gondolin";
-			LOTRDrpMain.LOG.info("theme set to gondolin");
+			LOTRDrpMain.LOG.info("DRP theme set to gondolin");
 		} else if (theme.equalsIgnoreCase("evenstar")) {
 			LOTRDrpMain.theme = "evenstar";
-			LOTRDrpMain.LOG.info("theme set to evenstar");
+			LOTRDrpMain.LOG.info("DRP theme set to evenstar");
 		}
 		if (config.hasChanged()) {
 			config.save();
-			LOTRDrpMain.LOG.info("Config Saved");
+			LOTRDrpMain.LOG.info("DRP Config Saved");
 		}
 	}
 
@@ -132,7 +132,7 @@ public class LOTRDrpConfig {
 	public void onCfgChnageEvent(ConfigChangedEvent.OnConfigChangedEvent event) {
 		if (event.modID.equals("lotrdrp")) {
 			loadConfig();
-			LOTRDrpMain.LOG.info("Config Has Been Changed");
+			LOTRDrpMain.LOG.info("DRP Config Has Been Changed");
 		}
 	}
 

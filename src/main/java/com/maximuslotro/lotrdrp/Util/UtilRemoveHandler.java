@@ -11,7 +11,7 @@ public class UtilRemoveHandler {
 		File oldconfig = new File(event.getModConfigurationDirectory(), "lotrdrp.cfg");
 		if (oldconfig.exists()) {
 			oldconfig.deleteOnExit();
-			LOTRDrpMain.LOG.info("Removed Old Config File");
+			LOTRDrpMain.LOG.info("DRP Removed Old Config File");
 		}
 	}
 
@@ -19,7 +19,7 @@ public class UtilRemoveHandler {
 		File config = new File(event.getModConfigurationDirectory(), "lotrdrp.cfg");
 		if (config.exists()) {
 			config.deleteOnExit();
-			LOTRDrpMain.LOG.info("Reset Config File");
+			LOTRDrpMain.LOG.info("DRP Reset Config File");
 		}
 	}
 }

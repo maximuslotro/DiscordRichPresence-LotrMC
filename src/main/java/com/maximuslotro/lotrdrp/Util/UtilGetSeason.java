@@ -13,7 +13,7 @@ public class UtilGetSeason {
 				public void run() {
 					try {
 						boolean seasonCheck=false;
-						LOTRDrpMain.LOG.info("Checking Season");
+						LOTRDrpMain.LOG.info("DRP Checking Season");
 						URL url = new URL(UtilGetSeason.seasonUrl);
 						BufferedReader seasonReader = new BufferedReader(new InputStreamReader(url.openStream()));
 						String season = "";
@@ -26,18 +26,18 @@ public class UtilGetSeason {
 								season =season.concat(seasonReader.readLine());
 								UtilGetSeason.seasonId = season;
 								seasonCheck=true;
-								LOTRDrpMain.LOG.info("Found Season");
+								LOTRDrpMain.LOG.info("DRP Found Season");
 							}
 							else {
 								UtilGetSeason.isSeason=false;
 								seasonCheck=true;
-								LOTRDrpMain.LOG.info("No Season Found");
+								LOTRDrpMain.LOG.info("DRP No Season Found");
 							}
 						}
 						seasonReader.close();
 						season = season.trim();
 					} catch (Exception e) {
-						LOTRDrpMain.LOG.error("Season Check Failed");
+						LOTRDrpMain.LOG.error("DRP Season Check Failed");
 						e.printStackTrace();
 					}
 				}

@@ -54,7 +54,7 @@ public class LOTRDrpUpdateChecker {
 								entityClientPlayerMP.addChatComponentMessage((IChatComponent) chatComponentText);
 						}
 					} catch (Exception e) {
-						LOTRDrpMain.LOG.error("Update Check Failed");
+						LOTRDrpMain.LOG.error("DRP Update Check Failed");
 						e.printStackTrace();
 					}
 				}

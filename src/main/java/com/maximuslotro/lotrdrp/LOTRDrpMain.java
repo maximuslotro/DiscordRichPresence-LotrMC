@@ -56,7 +56,7 @@ public class LOTRDrpMain
     	LOTRDrpEventHandler handler = new LOTRDrpEventHandler();
     	MinecraftForge.EVENT_BUS.register(handler);
     	FMLCommonHandler.instance().bus().register(handler);
-    	LOG.info("Thanks For Using LOTR Drp V"+VERSION);
+    	LOG.info("DRP Thanks For Using LOTR Drp V"+VERSION);
     	proxy.preload();
     	String cfgDir = event.getModConfigurationDirectory().toString();
     	LOTRDrpConfig.init(cfgDir);
@@ -70,7 +70,7 @@ public class LOTRDrpMain
     	try {
 			this.discord = new LOTRDrpConnector();
 		} catch (IOException e) {
-	    	LOG.info("Failed to create LOTRDrpConnector");
+	    	LOG.info("DRP Failed to create LOTRDrpConnector");
 	    	e.printStackTrace();
 	    	return;
 		}

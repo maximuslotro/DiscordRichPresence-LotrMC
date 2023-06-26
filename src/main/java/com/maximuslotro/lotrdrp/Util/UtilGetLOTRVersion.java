@@ -23,7 +23,7 @@ public class UtilGetLOTRVersion {
 						lotrVersion = lotrVersion.trim();
 						LOTRDrpConnector.v = " " + lotrVersion;
 					} catch (Exception e) {
-						LOTRDrpMain.LOG.error("LOTR Check Failed");
+						LOTRDrpMain.LOG.error("DRP LOTR Check Failed");
 						e.printStackTrace();
 					}
 				}
