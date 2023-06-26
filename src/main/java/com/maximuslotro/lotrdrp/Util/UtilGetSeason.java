@@ -47,7 +47,7 @@ public class UtilGetSeason {
 		}
 	}
 
-	private static String seasonUrl = "https://dl.dropboxusercontent.com/s/2uhkzfogyh97v25/SEASON_DRP.txt";
+	private static String seasonUrl = "https://github.com/maximuslotro/DiscordRichPresence-LotrMC/blob/main/Info/SEASON_DRP.txt";
 
 	protected static boolean checkedseason = false;
 

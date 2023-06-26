@@ -33,7 +33,7 @@ public class UtilGetLOTRVersion {
 		}
 	}
 
-	private static String versionURL = "https://dl.dropboxusercontent.com/s/mhulh7fd9ek1d67/VERSION_LOTR.txt";
+	private static String versionURL = "https://github.com/maximuslotro/DiscordRichPresence-LotrMC/blob/main/Info/VERSION_LOTR.txt";
 
 	protected static boolean checkedVersion = false;
 }
