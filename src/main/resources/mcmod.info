@@ -5,14 +5,12 @@
   "description": "This mod provides purely cosmetic benefits by showing a Rich Presence in discord that shows up when others in your discord server click on your name.",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
   "authorList": [""Otis_Goodman","maximuslotro""],
   "credits": "2023 maximuslotro",
-  "logoFile": "",
+  "logoFile": "assets/logo.png",
   "screenshots": [],
   "dependencies": [],
-  "updateUrl": "https://github.com/maximuslotro/SignStory/releases",
-  "url": "https://github.com/maximuslotro/SignStory/releases"
+  "updateUrl": "https://github.com/maximuslotro/DiscordRichPresence-LotrMC/releases",
+  "url": "https://github.com/maximuslotro/DiscordRichPresence-LotrMC/releases"
 }
 ]
