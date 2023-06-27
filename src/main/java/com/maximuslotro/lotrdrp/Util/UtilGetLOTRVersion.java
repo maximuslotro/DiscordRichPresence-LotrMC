@@ -21,10 +21,9 @@ public class UtilGetLOTRVersion {
 							lotrVersion = lotrVersion.concat(line);
 						versionReader.close();
 						lotrVersion = lotrVersion.trim();
-						LOTRDrpConnector.v = " " + lotrVersion;
+						LOTRDrpConnector.version = " " + lotrVersion;
 					} catch (Exception e) {
-						LOTRDrpMain.LOG.error("DRP LOTR Check Failed");
-						e.printStackTrace();
+						LOTRDrpMain.LOG.error("DRP LOTR Version Check Failed");
 					}
 				}
 			};

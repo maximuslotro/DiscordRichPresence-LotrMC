@@ -38,7 +38,6 @@ public class UtilGetSeason {
 						season = season.trim();
 					} catch (Exception e) {
 						LOTRDrpMain.LOG.error("DRP Season Check Failed");
-						e.printStackTrace();
 					}
 				}
 			};

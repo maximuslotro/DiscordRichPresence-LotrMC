@@ -14,93 +14,134 @@ import com.maximuslotro.lotrdrp.Client.Config.LOTRDrpConfig;
 
 import de.jcm.discordgamesdk.Core;
 import de.jcm.discordgamesdk.CreateParams;
+import de.jcm.discordgamesdk.GameSDKException;
 import de.jcm.discordgamesdk.activity.Activity;
 import net.minecraft.client.Minecraft;
 
 public class LOTRDrpConnector {
-	private static final Long APP_ID = 432578629461999636L;
+	private static final Long APP_ID = 1122994643697676468L;
 
-	public static String v = "";
+	public static String version = "";
+	private static String stateM = "In Menu IGN:" + Minecraft.getMinecraft().getSession().getUsername();
+	private static String detailsM = "LOTR Mod " + version;
+	private static String largeText = "Snazzy Presence Brought To You By LOTR Drp!";
+	private static String smallText = "";
+	private static String largeImage = "ring";
+	private static String smallImage = "";
+	private static Instant instant;
+	private static boolean changed = false;
 
-	private Activity activityMain;
-
-	private Core coreMain;
-
-	public LOTRDrpConnector() throws IOException {
+	public LOTRDrpConnector() throws IOException, GameSDKException {
 		if (LOTRDrpConfig.cfgEnableDrp) {
 			File discordLibrary = downloadDiscordLibrary();
 			if(discordLibrary == null)
 			{
-				System.err.println("Error downloading Discord SDK.");
-				System.exit(-1);
+				LOTRDrpMain.LOG.error("DRP Error downloading Discord SDK.");
+				throw new IOException("Error downloading Discord SDK.");
 			}
-			// Initialize the Core
-			Core.init(discordLibrary);
-			
-			try(CreateParams params = new CreateParams())
-			{
-				params.setClientID(APP_ID);
-				params.setFlags(CreateParams.getDefaultFlags());
-				// Create the Core
-				try (Core core = new Core(params)) {
-					coreMain = core;
-					// Create the Activity
-					try(Activity activity = new Activity())
-					{
-						activity.setDetails("LOTR Mod " + v);
-						activity.setState("In Menu IGN:" + Minecraft.getMinecraft().getSession().getUsername());
+			//LOTRDrpMain.LOG.info("DRP "+discordLibrary.getAbsolutePath());
+			(new Thread("RPC-Callback-Handler") {
+				public void run() {
+					while (!Thread.currentThread().isInterrupted()) {
+						// Initialize the Core
+						Core.init(discordLibrary);
+						// Set parameters for the Core
+						try(CreateParams params = new CreateParams())
+						{
+							params.setClientID(APP_ID);
+							params.setFlags(CreateParams.getDefaultFlags());
+							// Create the Core
+							try(Core core = new Core(params))
+							{
+								// Create the Activity
+								try(Activity activity = new Activity())
+								{
+									activity.setDetails("LOTR Mod " + version);
+									activity.setState("In Menu IGN:" + Minecraft.getMinecraft().getSession().getUsername());
 
-						// Setting a start time causes an "elapsed" field to appear
-						activity.timestamps().setStart(Instant.now());
+									// Setting a start time causes an "elapsed" field to appear
+									instant=Instant.now();
+									activity.timestamps().setStart(instant);
 
-						// Make a "cool" image show up
-						//activity.assets().setLargeImage("simple");
-						//activity.assets().setLargeText("Snazzy Presence Brought To You By LOTR Drp!");
-						
-						// Setting a join secret and a party ID causes an "Ask to Join" button to appear
-						activity.party().size().setMaxSize(0);
+									// We are in a party with 10 out of 100 people.
+									activity.party().size().setMaxSize(0);
+									activity.party().size().setCurrentSize(0);
 
-						activityMain=activity;
-						// Finally, update the current activity to our activity
-						coreMain.activityManager().updateActivity(activityMain);
+									// Make a "cool" image show up
+									activity.assets().setLargeImage("ring");
+									activity.assets().setLargeText("Snazzy Presence Brought To You By LOTR Drp!");
+
+									// Finally, update the current activity to our activity
+									core.activityManager().updateActivity(activity);
+								}
+
+								// Run callbacks forever
+								while(true)
+								{
+									if(changed) {
+										try(Activity activity = new Activity())
+										{
+											activity.setDetails(detailsM);
+											activity.setState(stateM);
+
+											// Setting a start time causes an "elapsed" field to appear
+											activity.timestamps().setStart(instant);
+
+											// We are in a party with 10 out of 100 people.
+											activity.party().size().setMaxSize(0);
+											activity.party().size().setCurrentSize(0);
+
+											// Make a "cool" image show up
+											activity.assets().setLargeImage(largeImage);
+											activity.assets().setLargeText(largeText);
+											activity.assets().setSmallImage(smallImage);
+											activity.assets().setSmallText(smallText);
+
+											// Finally, update the current activity to our activity
+											core.activityManager().updateActivity(activity);
+										}
+										changed=false;
+									}
+									core.runCallbacks();
+									try
+									{
+										// Sleep a bit to save CPU
+										Thread.sleep(16);
+									}
+									catch(InterruptedException e)
+									{
+										e.printStackTrace();
+									}
+								}
+							}
+						}
 					}
 				}
-			}
+			}).start();
 		}
 	}
 
-	public void run() {
-		(new Thread("RPC-Callback-Handler") {
-			public void run() {
-				while (!Thread.currentThread().isInterrupted()) {
-					LOTRDrpConnector.this.coreMain.activityManager().updateActivity(activityMain);
-					LOTRDrpConnector.this.coreMain.runCallbacks();
-					try {
-						Thread.sleep(2000L);
-					} catch (InterruptedException interruptedException) {
-					}
-				}
-			}
-		}).start();
-	}
-
 	public void updateTimestamp() {
-		this.activityMain.timestamps().setStart(Instant.now());
+		//instant = Instant.now();
+		//changed=true;
 	}
 
 	public void updateState(String state, String details) {
-		this.activityMain.setState(state);
-		this.activityMain.setDetails(details);
+		stateM = state;
+		detailsM = details;
+		changed=true;
 	}
 
 	public void updateText(String small, String large) {
-		//this.activityMain.assets().setLargeImage(large);
-		//this.activityMain.assets().setSmallImage(small);
+		largeText = large;
+		smallText = small;
+		changed=true;
 	}
 
 	public void updateImages(String small, String large) {
-		//this.activityMain.assets().setLargeText(large);
-		//this.activityMain.assets().setSmallText(small);
+		largeImage = large;
+		smallImage = small;
+		changed=true;
 	}
 
 	public static File downloadDiscordLibrary() throws IOException

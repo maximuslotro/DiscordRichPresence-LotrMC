@@ -25,8 +25,7 @@ public class LOTRDrpSupportedServerHandler {
 			LOTRDrpMain.drp.discord.updateText("", "Singleplayer");
 			LOTRDrpMain.drp.discord.updateState("On: " + Minecraft.getMinecraft().getIntegratedServer().getWorldName(),
 					"Playing Singleplayer");
-			LOTRDrpMain.LOG
-					.info(Minecraft.getMinecraft().getSession().getUsername() + "is playing on singleplayer");
+			LOTRDrpMain.LOG .info(Minecraft.getMinecraft().getSession().getUsername() + "is playing on singleplayer");
 		} else {
 			handleIncognitoMode();
 		}
@@ -35,7 +34,7 @@ public class LOTRDrpSupportedServerHandler {
 	private static void handleIncognitoMode() {
 		LOTRDrpMain.drp.discord.updateImages("", LOTRDrpMain.theme);
 		LOTRDrpMain.drp.discord.updateText("", "Incognito Mode");
-		LOTRDrpMain.drp.discord.updateState("Playing LOTR Mod" + LOTRDrpConnector.v, "Minecraft 1.7.10");
+		LOTRDrpMain.drp.discord.updateState("Playing LOTR Mod" + LOTRDrpConnector.version, "Minecraft 1.7.10");
 		LOTRDrpMain.LOG.info(Minecraft.getMinecraft().getSession().getUsername() + "Enabled Incognito Mode");
 	}
 
@@ -47,8 +46,7 @@ public class LOTRDrpSupportedServerHandler {
 			LOTRDrpMain.drp.discord.updateImages(server.iconName(), LOTRDrpMain.theme);
 			LOTRDrpMain.drp.discord.updateText(server.name(), "Playing Server " + server.ip());
 			LOTRDrpMain.drp.discord.updateState(server.name(), server.ip());
-			LOTRDrpMain.LOG
-					.info(Minecraft.getMinecraft().getSession().getUsername() + "is playing on " + server.name());
+			LOTRDrpMain.LOG.info(Minecraft.getMinecraft().getSession().getUsername() + "is playing on " + server.name());
 		} else {
 			handleIncognitoMode();
 		}
@@ -59,8 +57,7 @@ public class LOTRDrpSupportedServerHandler {
 			LOTRDrpMain.drp.discord.updateImages("", LOTRDrpMain.theme);
 			LOTRDrpMain.drp.discord.updateText("", "Playing Server " + ip);
 			LOTRDrpMain.drp.discord.updateState("On: " + ip, "Playing On An Unknown Server ");
-			LOTRDrpMain.LOG.info(Minecraft.getMinecraft().getSession().getUsername()
-					+ "is playing on a server with the ip of " + ip);
+			LOTRDrpMain.LOG.info(Minecraft.getMinecraft().getSession().getUsername() + "is playing on a server with the ip of " + ip);
 		} else {
 			handleIncognitoMode();
 		}

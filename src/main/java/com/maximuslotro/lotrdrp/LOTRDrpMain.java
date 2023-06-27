@@ -21,6 +21,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import de.jcm.discordgamesdk.GameSDKException;
 import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = LOTRDrpMain.MODID, version = LOTRDrpMain.VERSION, name = "LOTR Drp", acceptedMinecraftVersions = "1.7.10", guiFactory = "com.maximuslotro.lotrdrp.Client.Config.LOTRDrpGui")
@@ -69,12 +70,12 @@ public class LOTRDrpMain
     public void postInit(FMLPostInitializationEvent event) {
     	try {
 			this.discord = new LOTRDrpConnector();
-		} catch (IOException e) {
+		} catch (IOException|GameSDKException e) {
 	    	LOG.info("DRP Failed to create LOTRDrpConnector");
 	    	e.printStackTrace();
-	    	return;
+	    	discord=null;
 		}
-        this.discord.run();
+        //this.discord.run();
         proxy.postload();
     }
     

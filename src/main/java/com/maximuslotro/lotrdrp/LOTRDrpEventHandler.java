@@ -1,7 +1,5 @@
 package com.maximuslotro.lotrdrp;
 
-import java.util.Random;
-
 import com.maximuslotro.lotrdrp.Client.Config.LOTRDrpConfig;
 import com.maximuslotro.lotrdrp.Server.LOTRDrpSupportedServerHandler;
 import com.maximuslotro.lotrdrp.Util.LOTRDrpUpdateChecker;
@@ -25,14 +23,13 @@ public class LOTRDrpEventHandler {
 
 	@SubscribeEvent
 	public void disconnectedFromServer(FMLNetworkEvent.ClientDisconnectionFromServerEvent e) {
-		Random rand = new Random();
-		LOTRDrpConfig.themeNo = Integer.valueOf(rand.nextInt(LOTRDrpConfig.allThemesId.length) + 1);
+		LOTRDrpConfig.changeTheme();
 		if (LOTRDrpMain.drp.isPlayingOnSupportedServer())
 			LOTRDrpMain.drp.setPlayingOnSupportedServer(false);
 		LOTRDrpMain.drp.discord.updateTimestamp();
 		LOTRDrpMain.drp.discord.updateState("In Menu IGN:" + Minecraft.getMinecraft().getSession().getUsername(),
-				"LOTR Mod " + LOTRDrpConnector.v);
+				"LOTR Mod " + LOTRDrpConnector.version);
 		LOTRDrpMain.drp.discord.updateText("", "Snazzy Presence Brought To You By LOTR Drp!");
-		LOTRDrpMain.drp.discord.updateImages("", "simple");
+		LOTRDrpMain.drp.discord.updateImages("", "ring");
 	}
 }

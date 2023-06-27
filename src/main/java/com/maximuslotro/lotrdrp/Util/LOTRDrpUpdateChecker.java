@@ -55,7 +55,6 @@ public class LOTRDrpUpdateChecker {
 						}
 					} catch (Exception e) {
 						LOTRDrpMain.LOG.error("DRP Update Check Failed");
-						e.printStackTrace();
 					}
 				}
 			};
