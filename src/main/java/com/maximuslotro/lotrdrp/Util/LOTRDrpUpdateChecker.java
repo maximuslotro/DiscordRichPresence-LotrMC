@@ -63,7 +63,7 @@ public class LOTRDrpUpdateChecker {
 		}
 	}
 
-	private static String versionURL = "https://github.com/maximuslotro/DiscordRichPresence-LotrMC/blob/main/Info/VERSION_DRP.txt";
+	private static String versionURL = "https://raw.githubusercontent.com/maximuslotro/DiscordRichPresence-LotrMC/main/Info/VERSION_DRP.txt";
 
 	protected static boolean checkedUpdate = false;
 }

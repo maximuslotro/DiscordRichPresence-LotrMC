@@ -21,7 +21,8 @@ public class UtilGetLOTRVersion {
 							lotrVersion = lotrVersion.concat(line);
 						versionReader.close();
 						lotrVersion = lotrVersion.trim();
-						LOTRDrpConnector.version = " " + lotrVersion;
+						LOTRDrpMain.LOG.info("DRP LOTR Version Check Suscuess");
+						LOTRDrpConnector.version = lotrVersion;
 					} catch (Exception e) {
 						LOTRDrpMain.LOG.error("DRP LOTR Version Check Failed");
 					}
@@ -32,7 +33,7 @@ public class UtilGetLOTRVersion {
 		}
 	}
 
-	private static String versionURL = "https://github.com/maximuslotro/DiscordRichPresence-LotrMC/blob/main/Info/VERSION_LOTR.txt";
+	private static String versionURL = "https://raw.githubusercontent.com/maximuslotro/DiscordRichPresence-LotrMC/main/Info/VERSION_LOTR.txt";
 
 	protected static boolean checkedVersion = false;
 }

@@ -28,10 +28,15 @@ public class UtilGetSeason {
 								seasonCheck=true;
 								LOTRDrpMain.LOG.info("DRP Found Season");
 							}
-							else {
+							else if(check.contains("false")){
 								UtilGetSeason.isSeason=false;
 								seasonCheck=true;
 								LOTRDrpMain.LOG.info("DRP No Season Found");
+							}
+							else {
+								UtilGetSeason.isSeason=false;
+								seasonCheck=true;
+								LOTRDrpMain.LOG.error("DRP Couldnt find season");
 							}
 						}
 						seasonReader.close();
@@ -46,7 +51,7 @@ public class UtilGetSeason {
 		}
 	}
 
-	private static String seasonUrl = "https://github.com/maximuslotro/DiscordRichPresence-LotrMC/blob/main/Info/SEASON_DRP.txt";
+	private static String seasonUrl = "https://raw.githubusercontent.com/maximuslotro/DiscordRichPresence-LotrMC/main/Info/SEASON_DRP.txt";
 
 	protected static boolean checkedseason = false;
 

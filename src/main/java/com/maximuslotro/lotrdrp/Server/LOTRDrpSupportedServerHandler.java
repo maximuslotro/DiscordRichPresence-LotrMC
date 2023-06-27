@@ -34,7 +34,7 @@ public class LOTRDrpSupportedServerHandler {
 	private static void handleIncognitoMode() {
 		LOTRDrpMain.drp.discord.updateImages("", LOTRDrpMain.theme);
 		LOTRDrpMain.drp.discord.updateText("", "Incognito Mode");
-		LOTRDrpMain.drp.discord.updateState("Playing LOTR Mod" + LOTRDrpConnector.version, "Minecraft 1.7.10");
+		LOTRDrpMain.drp.discord.updateState("Playing LOTR Mod " + LOTRDrpConnector.version, "Minecraft 1.7.10");
 		LOTRDrpMain.LOG.info(Minecraft.getMinecraft().getSession().getUsername() + "Enabled Incognito Mode");
 	}
 
