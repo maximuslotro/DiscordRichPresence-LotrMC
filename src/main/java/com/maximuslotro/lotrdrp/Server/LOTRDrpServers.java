@@ -4,178 +4,59 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LOTRDrpServers {
-	public static ISupportedServer TOS = new ISupportedServer() {
-		public String name() {
-			return "LOTR Mod: Official Server";
-		}
-
-		public String ip() {
-			return "lotr.g.akliz.net";
-		}
-
-		public String iconName() {
-			return "tos";
-		}
-	};
-
-	public static ISupportedServer LOTRSurvival = new ISupportedServer() {
-		public String name() {
-			return "LOTR Survival";
-		}
-
-		public String ip() {
-			return "lotrmc.net";
-		}
-
-		public String iconName() {
-			return "serv";
-		}
-	};
-
-	public static ISupportedServer TheRingOfPower = new ISupportedServer() {
-		public String name() {
-			return "The Ring of Power";
-		}
-
-		public String ip() {
-			return "trop.g.akliz.net";
-		}
-
-		public String iconName() {
-			return "trop";
-		}
-	};
-
-	public static ISupportedServer OtisSiegeServer = new ISupportedServer() {
-		public String name() {
-			return "The LOTR Siege Server";
-		}
-
-		public String ip() {
-			return "144.217.39.165:25586";
-		}
-
-		public String iconName() {
-			return "pvpServer";
-		}
-	};
-
-	public static ISupportedServer SecondServerThatWillNotRuleAnything = new ISupportedServer() {
-		public String name() {
-			return "The Second Server That Wont Rule Anything";
-		}
-
-		public String ip() {
-			return "t2nds.net";
-		}
-
-		public String iconName() {
-			return "second";
-		}
-	};
-
-	public static ISupportedServer DOME = new ISupportedServer() {
-		public String name() {
-			return "Dominion of Middle-Earth";
-		}
-
-		public String ip() {
-			return "dominion.g.akliz.net";
-		}
-
-		public String iconName() {
-			return "dome";
-		}
-	};
-
-	public static ISupportedServer Ascension = new ISupportedServer() {
-		public String name() {
-			return "Ascension d'Arda";
-		}
-
-		public String ip() {
-			return "149.202.121.115:27220";
-		}
-
-		public String iconName() {
-			return "asc";
-		}
-	};
-
-	public static ISupportedServer Edgorovs = new ISupportedServer() {
-		public String name() {
-			return "LOTR: Edgorovs Realm";
-		}
-
-		public String ip() {
-			return "edgorovsrealm.apexmc.co";
-		}
-
-		public String iconName() {
-			return "engov";
-		}
-	};
-
-	public static ISupportedServer Champ = new ISupportedServer() {
-		public String name() {
-			return "The Champions Game";
-		}
-
-		public String ip() {
-			return "tcg.apexmc.co";
-		}
-
-		public String iconName() {
-			return "cg";
-		}
-	};
-
-	public static ISupportedServer Reforged = new ISupportedServer() {
-		public String name() {
-			return "Middle Earth Reforged";
-		}
-
-		public String ip() {
-			return "41.216.190.100:25565";
-		}
-
-		public String iconName() {
-			return "minecraft-lord-of-the-rings-mod";
-		}
-	};
-
-	public static ISupportedServer Quenta = new ISupportedServer() {
-		public String name() {
-			return "Ilu Ambar - Quenta Arda";
-		}
-
-		public String ip() {
-			return "51.81.53.218:25566";
-		}
-
-		public String iconName() {
-			return "quenta";
-		}
-	};
 
 	private static final Map<String, ISupportedServer> servers = new HashMap<>();
 
 	public static void initServers() {
-		addServer(TOS);
-		addServer(LOTRSurvival);
-		addServer(TheRingOfPower);
-		addServer(OtisSiegeServer);
-		addServer(SecondServerThatWillNotRuleAnything);
-		addServer(DOME);
-		addServer(Ascension);
-		addServer(Edgorovs);
-		addServer(Champ);
-		addServer(Reforged);
-		addServer(Quenta);
+		addServer("LOTR Mod: Official Server", "lotr.g.akliz.net");
+		addServer("Abyss of Middle Earth", "51.81.43.65:27110");
+		addServer("Adventures of Middle-Earth", "66.59.210.181:25564");
+		addServer("Aeons of Ainulindalë", "ainulindale.apexmc.co");
+		addServer("Age of Sauron", "5.135.80.105:25615");
+		addServer("AncarCraft: The Third Age", "mc.ancarnetwork.online");
+		addServer("Anduins Wrath", "anduinswrath.com");
+		addServer("Arda's Legends", "178.33.208.218:25650");
+		addServer("Ascension d'Arda", "91.121.65.169:25567");
+		addServer("Blood on Mithril", "bloodonmithril.com");
+		addServer("Darkness upon Middle-Earth", "dumelotr.dedimc.io");
+		addServer("Doom of Mandos", "dom.apexmc.co");
+		addServer("History of Middle-earth", "game05.koopjeserver.nl:28000");
+		addServer("Isildur's Bane LOTR Server", "isildursbane.mcph.co");
+		addServer("It's an even hARDA world", "172.107.244.82:25599");
+		addServer("Lord of Embers: Third Age", "thelordofembers.com");
+		addServer("Lords of Middle-earth", "51.222.245.105 ");
+		addServer("LOTR Survival", "lotrmc.net");
+		addServer("LOTR Survival Old", "lotrmc.net:25566");
+		addServer("LOTR: A Story in Middle-earth", "51.195.61.72:25580");
+		addServer("LoTRCircles", "lotr.circlecraft.info");
+		addServer("Realms of Arda", "realmsofarda.apexmc.co");
+		addServer("Rekindled Legacy", "ganymede.cheesehosting.net:57206");
+		addServer("Tales of Middle Earth", "renewedtome.g.akliz.net");
+		addServer("The One Ring", "theoneringofficial.com");
+		addServer("The Rise of Middle Earth", "23.139.82.27:2356");
+		addServer("The Rise of Morgoth", "5.62.71.7:21987");
+		addServer("The Second Server That Wont Rule Anything", "158.69.55.2");
+		addServer("Third age: Rise of War", "minecraft1259.omgserv.com:10095");
+		addServer("Vintage Arda", "vintagearda.g.akliz.net");
+		addServer("War of the Ring", "wotrmc-world1.com");
 	}
 
-	public static void addServer(ISupportedServer server) {
-		getServers().put(server.ip(), server);
+	public static void addServer(String name, String ip) {//, String iconName) {
+		ISupportedServer server = new ISupportedServer() {
+			public String name() {
+				return name;
+			}
+
+			public String ip() {
+				return ip;
+			}
+
+			public String iconName() {
+				//return iconName;
+				return "";
+			}
+		};
+		getServers().put(ip, server);
 	}
 
 	public static Map<String, ISupportedServer> getServers() {
